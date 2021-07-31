@@ -3,6 +3,8 @@ import MeatImage from './assets/meat.png';
 import CheeseImage from './assets/cheese.png';
 import SaladImage from './assets/salad.png';
 import BaconImage from './assets/bacon.png';
+import Coffee from './assets/coffee.png';
+import Cutlery from './assets/cutlery.png';
 import Card from "./components/card";
 import Price from "./components/price";
 import BreadTop from "./components/breadTop"
@@ -12,30 +14,30 @@ import './App.css';
 function App() {
 
     const [ingredients, setIngredients] = useState([
-        {name: 'Meat', count: 0, image: MeatImage, price: 50, currentPrice: 0},
-        {name: 'Cheese', count: 0, image: CheeseImage, price: 20, currentPrice: 0},
-        {name: 'Salad', count: 0, image: SaladImage, price: 5, currentPrice: 0},
-        {name: 'Bacon', count: 0, image: BaconImage, price: 30, currentPrice: 0},
-        {name: 'Bacon', count: 0, image: BaconImage, price: 30, currentPrice: 0},
-        {name: 'Bacon', count: 0, image: BaconImage, price: 30, currentPrice: 0},
+        {name: 'Hamburger', count: 0, image: Cutlery, price: 80, currentPrice: 0},
+        {name: 'Coffee', count: 0, image: Coffee, price: 70, currentPrice: 0},
+        {name: 'Fries', count: 0, image: Cutlery, price: 45, currentPrice: 0},
+        {name: 'Tea', count: 0, image: Coffee, price: 50, currentPrice: 0},
+        {name: 'Cheeseburger', count: 0, image: Cutlery, price: 90, currentPrice: 0},
+        {name: 'Cola', count: 0, image: Coffee, price: 40, currentPrice: 0},
     ]);
 
-    const [price, setPrice] = useState(20);
+    const [price, setPrice] = useState(0);
 
     const updatePrice = (index) => {
         ingredients[index].currentPrice = ingredients[index].count * ingredients[index].price;
         const sum = ingredients.reduce((sum, ingredient) => {
             return ingredient.currentPrice + sum
-        }, 20)
+        }, 0)
 
         setPrice(sum)
     }
 
     const AddIngredients = (index) => {
-
         ingredients[index].count++;
         updatePrice(index)
-        setIngredients([... ingredients]);
+        setIngredients([...ingredients]);
+        console.log(ingredients)
     };
 
     const removeIngredients = (index) => {
@@ -49,35 +51,31 @@ function App() {
 
     return (
         <div className="container">
-            <fieldset className="fieldset-1">
-                <legend>Add items:</legend>
-
-                {ingredients.map ((ingredient, index) => {
-                        return <Card ingredient={ingredient.name} img={ingredient.image} amount={ingredient.count} add={() => {AddIngredients(index)}} remove={() => {removeIngredients(index)}}/>
-                })}
-
-            </fieldset>
-
             <fieldset className="fieldset-2">
                 <legend>Order details:</legend>
 
-                <div className="Burger">
-
-                    <BreadTop/>
-
-                    {ingredients.map ((ingredient, index) => {
+                    {ingredients.map((ingredient, index) => {
                         const renderIngredient = []
-                        for (let i=0; i < ingredient.count; i++) {
+                        for (let i = 0; i < ingredient.count; i++) {
                             renderIngredient.push(<Ingredient ingredient={ingredient.name}/>);
                         }
                         return renderIngredient
                     })}
 
-                    <div className="BreadBottom"/>
-
-                </div>
-
+                <div className="line"/>
                 <Price price={price}/>
+
+            </fieldset>
+
+            <fieldset className="fieldset-1">
+                <legend>Add items:</legend>
+
+                {ingredients.map((ingredient, index) => {
+                    return <Card  price={ingredient.price} ingredient={ingredient.name} img={ingredient.image} amount={ingredient.count}
+                                 add={() => {
+                                     AddIngredients(index)
+                                 }}/>
+                })}
 
             </fieldset>
         </div>

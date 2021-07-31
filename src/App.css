@@ -7,34 +7,47 @@ fieldset {
 }
 
 .fieldset-1 {
-    width: 65%;
-}
-
-.fieldset-2 {
-    width: 35%;
+    width: 50%;
     text-align: center;
 }
 
+.fieldset-2 {
+    width: 50%;
+}
+
 .card {
+    margin-right: 60px;
+    margin-left: 60px;
     border: 1px solid black;
-    border-radius: 2px;
-    height: 70px;
+    border-radius: 15px;
     margin-bottom: 30px;
+    display: inline-block;
+    width: 330px;
+    cursor: pointer;
+    transition: 100ms;
 }
 
 .card div {
-    display: inline-block;
-    line-height: 70px;
-    vertical-align: top;
+    display: flex;
+    justify-content: center;
 }
 
 .amount {
-    float: right ;
+    float: right;
     margin-right: 80px;
 }
 
 .ingredient {
-    margin-left: 40px;
+    font-size: 26px;
+}
+
+.line {
+    border-top: 2px solid slategrey;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 600;
 }
 
 .remove {
@@ -52,11 +65,12 @@ fieldset {
 .ingredientImg {
     margin-top: 8px;
     margin-left: 20px;
-    cursor: pointer;
-    transition: 100ms;
 }
 
-.ingredientImg:hover {
-    transform: scale(1.1
-    );
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card:active{
+    transform: scale(0.9);
 }
