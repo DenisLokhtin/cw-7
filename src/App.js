@@ -37,7 +37,6 @@ function App() {
         ingredients[index].count++;
         updatePrice(index)
         setIngredients([...ingredients]);
-        console.log(ingredients)
     };
 
     const removeIngredients = (index) => {
@@ -57,7 +56,9 @@ function App() {
                     {ingredients.map((ingredient, index) => {
                         const renderIngredient = []
                         for (let i = 0; i < ingredient.count; i++) {
-                            renderIngredient.push(<Ingredient ingredient={ingredient.name}/>);
+                            if (ingredient.count === 1) {
+                                renderIngredient.push(<Ingredient name={ingredient.name} amount={ingredient.count} price={ingredient.currentPrice}/>);
+                            }
                         }
                         return renderIngredient
                     })}

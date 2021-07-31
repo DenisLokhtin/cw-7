@@ -37,8 +37,8 @@ fieldset {
     margin-right: 80px;
 }
 
-.ingredient {
-    font-size: 26px;
+.product {
+    margin-bottom: 15px;
 }
 
 .line {
@@ -56,6 +56,22 @@ fieldset {
     float: right;
     margin-top: 10px;
     transition: 100ms;
+}
+
+.product div {
+    display: inline-block;
+}
+
+.amount {
+    float: right;
+}
+
+.currentPrice {
+    float: right;
+}
+
+.totalPrice {
+    float: right;
 }
 
 .remove:hover {
