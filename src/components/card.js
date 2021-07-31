@@ -1,6 +1,4 @@
 import React from 'react';
-import BinImage from "../assets/bin.png";
-
 
 const Card = (props) => (
     <div className="card" onClick={props.add}>
@@ -13,8 +11,6 @@ const Card = (props) => (
         <div>
             <p>price: {props.price} KGS</p>
         </div>
-        {/*<img onClick={props.remove} className="remove" src={BinImage} alt="bin"/>*/}
-        {/*<div className="amount">X {props.amount}</div>*/}
     </div>
 );
 

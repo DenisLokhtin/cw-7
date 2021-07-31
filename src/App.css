@@ -39,6 +39,7 @@ fieldset {
 
 .product {
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .line {
@@ -51,11 +52,10 @@ fieldset {
 }
 
 .remove {
-    padding: 10px;
     cursor: pointer;
     float: right;
-    margin-top: 10px;
     transition: 100ms;
+    margin-left: 30px;
 }
 
 .product div {
@@ -72,6 +72,7 @@ fieldset {
 
 .totalPrice {
     float: right;
+    margin-right: 25px;
 }
 
 .remove:hover {
